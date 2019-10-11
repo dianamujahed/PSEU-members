@@ -1,22 +1,26 @@
 $mainColor:#2D89E6;
+
+@mixin flexCenter($direction) {
+    display: flex;
+    align-items: center;
+    justify-content: center;//for horizental center
+    flex-direction: $direction;
+}
 *{
     box-sizing: border-box;
 }
 .top-bar{
-    padding: 20px;
+    padding: 15px;
     background-color:$mainColor;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;//for horizental center
+    @include flexCenter(row);
+    color:white;
+    .header-text{
+        margin: 0%;   
+    }
 }
 body{
     margin: 0px;
-}
-.header-text{
-    margin: 0%;
-    align-self: center;//for vertical center
-   
 }
 .main{
     display: flex;
@@ -24,15 +28,24 @@ body{
     justify-content: space-between;    
 }
 .right{
-   // width: 1088px; 
+  background-color: rgba(185, 179, 179, 0.295);
+  width: 100%;
+  margin-right: 50px;
+  height: 550px;
+  overflow: auto;
+  scroll-behavior: smooth;  
 }
 .left{
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid #C3C3C3;
     border-radius: 15px;
-    margin: 30px 100px;
+    margin: 30px 30px 0px 100px;
+    form{
+        width: 100%;
+     }
 }
 .add-text{
     color: #707070;
@@ -60,22 +73,76 @@ body{
     height: 100%;
     width: 100%;
 }
-.left form{
-   width: 100%;
-}
+
 .save{
     padding: 20px;
     background-color: $mainColor;
     border-radius: 0px  0px 15px 15px;
+    .save-btn{
+        color: white;
+        font-weight: bold;
+    }
     
 }
-.save-btn{
-    color: white;
-    font-weight: bold;
-}
+
 .bottom-option{
     margin: 5px 20px 40px 20px;
 }
 select{
     color: #757575;
 }
+.top-menu{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    .filters ,.items-number{
+        background-color: $mainColor;
+        padding:10px;
+        }
+        .filters{
+            padding-right:  112px;
+            padding-left: 40px;
+            border-radius: 0 50px 50px 0 ;
+        }
+        .items-number{
+            padding-left:50px;
+            border-radius:  50px 0 0 50px   ;
+        }
+        label,.items-number{
+                color:white;
+            }   
+        select,input{
+            margin: 0 5px;
+            padding: 3px 5px;
+            border: none;
+            border-radius: 5px;
+        } 
+    }
+    
+    .item{
+        display: flex;
+        .info{
+            *{
+                margin: 5px;
+            }
+            p{
+                color:rgb(126, 122, 122);
+            }
+            a{
+                text-decoration: none;
+                color: rgb(13, 86, 170);
+            }
+        }
+       .delete{ 
+           align-self: center;
+           padding:10px 15px;
+           background-color: red;
+           border-radius: 500px;
+           color: white;
+           margin: 7px;
+             }
+        
+        margin: 10px 20px;
+    }
+    
+
