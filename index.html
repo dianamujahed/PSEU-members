@@ -26,17 +26,26 @@
                     <input class="add-item" type="email" name="email" placeholder="Email">
                 </div>
                 <div class="major">
-                    <input class="add-item" type="text" name="major" placeholder="Major">
+                    <select class="add-item">
+                        <option value="major" hidden>Major</option>
+                        <option value="cs">cs</option>
+                        <option value="ce">ce</option>
+                        <option value="it">it</option>
+                    </select>
                 </div>
                 <div class="role">
-                    <input class="add-item" type="text" name="role" placeholder="Role">
+                    <select class="add-item">
+                        <option value="role" hidden>Role</option>
+                        <option value="po">po</option>
+                        <option value="master">master</option>
+                    </select>
                 </div>
                 <div>
-                    <input class="add-item biography" name="biography" placeholder="Biography">
+                    <textarea  class="add-item biography" placeholder="Biography"></textarea>
                 </div>
                 <div class="bottom-option">
                     <input type="checkbox"><span class="checkbox-text">Add to bottom / or at index </span>
-                    <input class="index" type="text" name="index" >
+                    <input class="index" type="text" name="index">
                 </div>
                 <div class="save">
                     <input class="save-btn" type="submit" name="save" value="Save">
@@ -44,7 +53,7 @@
             </form>
         </div>
         <div class="right">
-           
+
         </div>
     </div>
 </body>
