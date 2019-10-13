@@ -20,19 +20,22 @@ $mainColor:#2D89E6;
         margin: 0%;   
     }
 }
-body{
+html,body{
     margin: 0px;
+    height: 100%;
 }
-.main{
+.main
+{
     display: flex;
     width: 100%;
+    height: calc(100% - 76px);
     justify-content: space-between;    
 }
 .right{
   background-color: rgba(185, 179, 179, 0.295);
   width: 100%;
   margin-right: 50px;
-  height: 580px;
+  height: 100%;
   overflow: auto;
   scroll-behavior: smooth; 
   font-size: 13px; 
@@ -126,6 +129,8 @@ select{
     
     .item{
         display: flex;
+        height: 70px;
+        overflow: hidden;
         .info{
             *{
                 margin: 5px;
@@ -145,6 +150,7 @@ select{
            border-radius: 500px;
            color: white;
            margin: 7px;
+           border: none;
              }
         
         margin: 10px 20px;

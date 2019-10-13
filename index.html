@@ -21,35 +21,36 @@
                         <h3>Add new member</h3>
                     </div>
                     <div class="name">
-                        <input class="add-item" type="text" name="name" placeholder="Name">
+                        <input required class="add-item" type="text" name="name" placeholder="Name">
                     </div>
                     <div class="email">
-                        <input class="add-item" type="email" name="email" placeholder="Email">
+                        <input required class="add-item" type="email" name="email" placeholder="Email">
                     </div>
-                    <div class="major">
-                        <select class="add-item">
+                    <div >
+                        <select required class="add-item" name="major">
                             <option value="major" hidden>Major</option>
                             <option value="cs">cs</option>
                             <option value="ce">ce</option>
                             <option value="it">it</option>
                         </select>
                     </div>
-                    <div class="role">
-                        <select class="add-item">
+                    <div >
+                        <select required class="add-item" name="role">
                             <option value="role" hidden>Role</option>
                             <option value="po">po</option>
                             <option value="master">master</option>
                         </select>
                     </div>
                     <div>
-                        <textarea class="add-item biography" placeholder="Biography"></textarea>
+                        <textarea required class="add-item biography" name="pio" placeholder="Biography" minlength="5"
+                            maxlength="1500"></textarea>
                     </div>
                     <div class="bottom-option">
-                        <input type="checkbox"><span class="checkbox-text">Add to bottom / or at index </span>
-                        <input class="index" type="text" name="index">
+                        <input type="checkbox" id="bottom"><span class="checkbox-text" >Add to bottom / or at index </span>
+                        <input class="index" type="text" name="index" id="index">
                     </div>
                     <div class="save">
-                        <input class="save-btn" type="submit" name="save" value="Save">
+                        <input class="save-btn" type="button" name="save" value="Save" onclick="addMember()">
                     </div>
                 </form>
             </div>
@@ -79,10 +80,33 @@
                     <span>15 items</span>
                 </div>
             </div>
-            <div class="item" onclick="show()">
-                <div class="delete">
-                    &#8722;
+            <div class="item" >
+            <button class="delete">
+                &#8722;
+            </button>
+            <div class="info" onclick="show()">
+                    <h3>Diana mujahed</h3>
+                    <a href="#">
+                        <span>
+                            diana.muj98@gmail.com
+                        </span>
+                        /
+                        <span>
+                            computer science
+                        </span>
+                        /
+                        <span>
+                            Front-end developer
+                        </span>
+                    </a>
+                    <p>fourth year computer science student at palestine polyhticnic university
+                    </p>
                 </div>
+            </div>
+            <div class="item" onclick="show()">
+                <button class="delete">
+                    &#8722;
+                </button>
                 <div class="info">
                     <h3>Diana mujahed</h3>
                     <a href="#">
@@ -103,9 +127,9 @@
                 </div>
             </div>
             <div class="item" onclick="show()">
-                <div class="delete">
+                <button class="delete">
                     &#8722;
-                </div>
+                </button>
                 <div class="info">
                     <h3>Diana mujahed</h3>
                     <a href="#">
@@ -126,9 +150,9 @@
                 </div>
             </div>
             <div class="item" onclick="show()">
-                <div class="delete">
+                <button class="delete">
                     &#8722;
-                </div>
+                </button>
                 <div class="info">
                     <h3>Diana mujahed</h3>
                     <a href="#">
@@ -148,99 +172,6 @@
                     </p>
                 </div>
             </div>
-            <div class="item" onclick="show()">
-                <div class="delete">
-                    &#8722;
-                </div>
-                <div class="info">
-                    <h3>Diana mujahed</h3>
-                    <a href="#">
-                        <span>
-                            diana.muj98@gmail.com
-                        </span>
-                        /
-                        <span>
-                            computer science
-                        </span>
-                        /
-                        <span>
-                            Front-end developer
-                        </span>
-                    </a>
-                    <p>fourth year computer science student at palestine polyhticnic university
-                    </p>
-                </div>
-            </div>
-            <div class="item" onclick="show()">
-                <div class="delete">
-                    &#8722;
-                </div>
-                <div class="info">
-                    <h3>Diana mujahed</h3>
-                    <a href="#">
-                        <span>
-                            diana.muj98@gmail.com
-                        </span>
-                        /
-                        <span>
-                            computer science
-                        </span>
-                        /
-                        <span>
-                            Front-end developer
-                        </span>
-                    </a>
-                    <p>fourth year computer science student at palestine polyhticnic university
-                    </p>
-                </div>
-            </div>
-            <div class="item" onclick="show()">
-                <div class="delete">
-                    &#8722;
-                </div>
-                <div class="info">
-                    <h3>Diana mujahed</h3>
-                    <a href="#">
-                        <span>
-                            diana.muj98@gmail.com
-                        </span>
-                        /
-                        <span>
-                            computer science
-                        </span>
-                        /
-                        <span>
-                            Front-end developer
-                        </span>
-                    </a>
-                    <p>fourth year computer science student at palestine polyhticnic university
-                    </p>
-                </div>
-            </div>
-            <div class="item" onclick="show()">
-                <div class="delete">
-                    &#8722;
-                </div>
-                <div class="info">
-                    <h3>Diana mujahed</h3>
-                    <a href="#">
-                        <span>
-                            diana.muj98@gmail.com
-                        </span>
-                        /
-                        <span>
-                            computer science
-                        </span>
-                        /
-                        <span>
-                            Front-end developer
-                        </span>
-                    </a>
-                    <p>fourth year computer science student at palestine polyhticnic university
-                    </p>
-                </div>
-            </div>
-
         </div>
     </div>
     <div class="popup">

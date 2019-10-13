@@ -28,8 +28,9 @@
   margin: 0%;
 }
 
-body {
+html, body {
   margin: 0px;
+  height: 100%;
 }
 
 .main {
@@ -37,6 +38,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  height: calc(100% - 76px);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -46,7 +48,7 @@ body {
   background-color: rgba(185, 179, 179, 0.295);
   width: 100%;
   margin-right: 50px;
-  height: 580px;
+  height: 100%;
   overflow: auto;
   scroll-behavior: smooth;
   font-size: 13px;
@@ -170,6 +172,8 @@ select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 70px;
+  overflow: hidden;
   margin: 10px 20px;
 }
 
@@ -195,6 +199,7 @@ select {
   border-radius: 500px;
   color: white;
   margin: 7px;
+  border: none;
 }
 
 /********* pop up item **********/
