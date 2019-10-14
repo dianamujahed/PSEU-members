@@ -20,26 +20,51 @@ class Member {
 let members = [];
 
 //check local storage
-if (localStorage.getItem("dataBase") === null) {
-  console.log('local storage is empty');
+if (localStorage.getItem('dataBase')) {
+
+  members = JSON.parse(localStorage.getItem('dataBase'));
 }
 else {
-  members = JSON.parse(localStorage['dataBase']);
+  console.log('local storage is empty');
 }
 
 
 //render members in the html
-function renderMembersInHtml(){
-  console.log('renderd');
-
+function renderMembersInHtml() {
+  let i;
+for (i = 0; i < members.length; i++) {
+  html += members[i] + "<br>";
+}
+  let html =  `<button class="delete">
+  &#8722;
+</button>
+<div class="info" onclick="show()">
+      <h3>Diana mujahed</h3>
+      <a href="#">
+          <span>
+              diana.muj98@gmail.com
+          </span>
+          /
+          <span>
+              computer science
+          </span>
+          /
+          <span>
+              Front-end developer
+          </span>
+      </a>
+      <p>fourth year computer science student at palestine polyhticnic university
+      </p>
+  </div> `;
+  document.getElementById("totalTime").innerHTML = "5:00";
 };
 
 
 //save members array  to local storage 
-function saveTOlocalStorage(){
-let json=JSON.stringify(members);
-localStorage['databBase']=json;
-console.log(localStorage['databBase']);
+function saveTOlocalStorage() {
+  let json = JSON.stringify(members);
+  localStorage.setItem('dataBase',json);
+  console.log(localStorage.getItem('dataBase'));
 };
 
 
