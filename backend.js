@@ -62,9 +62,8 @@ function renderMembersInHtml() {
 </div>
 </div>`;
   }
-  if(html)
-  {
-  document.getElementById("items").innerHTML = html;
+  if (html) {
+    document.getElementById("items").innerHTML = html;
   }
   let number = members.length;
   document.getElementById("number").innerHTML = number + " ITEMS";
@@ -85,10 +84,20 @@ function validateInputs() {
     && document.getElementById("pio").checkValidity();
 };
 
+
+//check email validity
+function checkEmail(Email) {
+  return Email.email !== document.getElementById("email").value;
+}
+
+
 //add members to members array
 function addMember() {
   if (!validateInputs()) {
-    document.getElementById("invalid").innerHTML="all feelds required";
+    document.getElementById("invalid").innerHTML = "all fields are required";
+  }
+  else if (!members.every(checkEmail)) {
+    document.getElementById("invalid").innerHTML = "email already taken";
   }
   else {
     let name = document.getElementById("name").value;
@@ -115,7 +124,7 @@ function addMember() {
     //console.log(members);
     renderMembersInHtml();
     saveTOlocalStorage();
-    document.getElementById("invalid").innerHTML="";//in case the previous trial is invalid
+    document.getElementById("invalid").innerHTML = "";//in case the previous trial is invalid
   }
 }
 
