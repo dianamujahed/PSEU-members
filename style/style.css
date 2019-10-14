@@ -177,6 +177,11 @@ select {
   border-radius: 5px;
 }
 
+.top-menu label {
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
 .item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -222,6 +227,7 @@ select {
   padding: 8px 0;
   position: absolute;
   z-index: 1;
+  left: 0%;
   top: 0%;
   display: -webkit-box;
   display: -ms-flexbox;
