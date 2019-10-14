@@ -38,7 +38,7 @@ function renderMembersInHtml() {
   let html = "";
   for (i = 0; i < members.length; i++) {
     html += `<div class="item" id="${i}">
-  <button class="delete">
+  <button class="delete" onclick="deleteMember(${i})">
       &#8722;
   </button>
   <div class="info" onclick="show()">
@@ -141,6 +141,13 @@ document.getElementById("bottom").onchange = function () {
 
 };
 
+
+//this function is for deleting member from the members array and as well from the local storage
+function deleteMember(index) {
+  members.splice(index, 1);
+  renderMembersInHtml();
+  saveTOlocalStorage();
+}
 
 
 
