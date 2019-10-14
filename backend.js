@@ -1,8 +1,9 @@
 // When the user clicks on div, open the popup
 function show() {
-  let popup = document.getElementById("item");
+  let popup = document.getElementById("item-detail");
   popup.classList.toggle("show");
 }
+
 
 //this class is for dealing with database
 class Member {
@@ -21,80 +22,99 @@ let members = [];
 
 //check local storage
 if (localStorage.getItem('dataBase')) {
-
   members = JSON.parse(localStorage.getItem('dataBase'));
+  renderMembersInHtml();
 }
 else {
   console.log('local storage is empty');
+
 }
 
 
 //render members in the html
 function renderMembersInHtml() {
   let i;
-for (i = 0; i < members.length; i++) {
-  html += members[i] + "<br>";
-}
-  let html =  `<button class="delete">
-  &#8722;
-</button>
-<div class="info" onclick="show()">
-      <h3>Diana mujahed</h3>
+  let html = "";
+  for (i = 0; i < members.length; i++) {
+    html += `<div class="item" id="${i}">
+  <button class="delete">
+      &#8722;
+  </button>
+  <div class="info" onclick="show()">
+      <h3>${members[i].name}</h3>
       <a href="#">
           <span>
-              diana.muj98@gmail.com
+          ${members[i].email}
           </span>
           /
           <span>
-              computer science
+          ${members[i].major}
           </span>
           /
           <span>
-              Front-end developer
+          ${members[i].role}
           </span>
       </a>
-      <p>fourth year computer science student at palestine polyhticnic university
+      <p>${members[i].pio}
       </p>
-  </div> `;
-  document.getElementById("totalTime").innerHTML = "5:00";
+  </div>
+</div>
+</div>`;
+  }
+  if (html) {
+    document.getElementById("items").innerHTML = html;
+  }
+  let number = members.length;
+  document.getElementById("number").innerHTML = number + " ITEMS";
 };
 
 
 //save members array  to local storage 
 function saveTOlocalStorage() {
   let json = JSON.stringify(members);
-  localStorage.setItem('dataBase',json);
+  localStorage.setItem('dataBase', json);
   console.log(localStorage.getItem('dataBase'));
 };
 
-
+//validation for inputs
+function validateInputs() {
+  return document.getElementById("name").checkValidity() && document.getElementById("email").checkValidity()
+    && document.getElementById("major").checkValidity() && document.getElementById("role").checkValidity()
+    && document.getElementById("pio").checkValidity();
+};
 
 //add members to members array
 function addMember() {
-  let name = document.getElementsByName("name")[0].value;
-  let email = document.getElementsByName("email")[0].value;
-  let major = document.getElementsByName("major")[0].value;
-  let role = document.getElementsByName("role")[0].value;
-  let pio = document.getElementsByName("pio")[0].value;
-  let dateTime = new Date();//current dateTime
-  let member = new Member(name, email, major, role, pio, dateTime);
-
-  //check index
-  let index = document.getElementById("index").value;
-  if (index !== "") {
-    members.splice(index, 0, member)
-    console.log(members);
-
+  if (!validateInputs()) {
+    document.getElementById("invalid").innerHTML = "all feelds required";
   }
-  else if (document.getElementById("bottom").checked == true)
-    members.push(member);
-  else
-    members.unshift(member);
+  else {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let major = document.getElementById("major").value;
+    let role = document.getElementById("role").value;
+    let pio = document.getElementById("pio").value;
+    let dateTime = new Date();//current dateTime
+    let member = new Member(name, email, major, role, pio, dateTime);
+
+    //check index
+    let index = document.getElementById("index").value;
+    if (index !== "") {
+      members.splice(index, 0, member)
+      console.log(members);
+
+    }
+    else if (document.getElementById("bottom").checked == true)
+      members.push(member);
+    else
+      members.unshift(member);
 
 
-  //console.log(members);
-  renderMembersInHtml();
-  saveTOlocalStorage();
+    //console.log(members);
+    renderMembersInHtml();
+    saveTOlocalStorage();
+    document.getElementById("invalid").innerHTML = "";//in case the previous trial is invalid
+  }
 }
 
 //this function is for disablING index if add to buttom checkbox is selected 

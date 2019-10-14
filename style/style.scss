@@ -10,6 +10,7 @@ $mainColor:#2D89E6;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .top-bar{
     padding: 15px;
     background-color:$mainColor;
@@ -23,6 +24,7 @@ $mainColor:#2D89E6;
 html,body{
     margin: 0px;
     height: 100%;
+    overflow: hidden;
 }
 .main
 {
@@ -48,7 +50,7 @@ html,body{
     align-items: center;
     border: 1px solid #C3C3C3;
     border-radius: 15px;
-    margin: 30% 30px 0px 100px;
+    margin: 30px 30px 0px 100px;
     form{
         width: 100%;
      }
@@ -94,17 +96,21 @@ html,body{
 }
 
 .bottom-option{
-    margin: 5px 20px 40px 20px;
+    margin: 5px 20px 0px 20px;
 }
 select{
     color: #757575;
+    width:90px;
 }
 .top-menu{
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     margin-top: 50px;
     .filters ,.items-number{
         background-color: $mainColor;
+        display: flex;
+        flex-wrap: nowrap;
         padding:8px;
         }
         .filters{
@@ -114,7 +120,7 @@ select{
         }
         .items-number{
             padding-left:30px;
-            border-radius:  50px 0 0 50px   ;
+            border-radius:  50px 0 0 50px;
         }
         label,.items-number{
                 color:white;
@@ -232,5 +238,15 @@ select{
             border-radius: 10px;
         }
         
+      }
+      #invalidDiv{
+        height: 30px;
+      }
+      #invalid{
+          margin: 5px;
+          display:flex;
+          font-size: 15px;
+          color:red;
+          justify-content: center;
       }
       

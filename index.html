@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="backend.js" async></script>
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <title>PSU Team</title>
 </head>
@@ -21,34 +22,40 @@
                         <h3>Add new member</h3>
                     </div>
                     <div class="name">
-                        <input required class="add-item" type="text" name="name" placeholder="Name">
+                        <input required class="add-item" type="text" id="name" placeholder="Name">
                     </div>
                     <div class="email">
-                        <input required class="add-item" type="email" name="email" placeholder="Email">
+                        <input required class="add-item" type="email" id="email" placeholder="Email">
                     </div>
                     <div>
-                        <select required class="add-item" name="major">
-                            <option value="major" hidden>Major</option>
-                            <option value="cs">cs</option>
-                            <option value="ce">ce</option>
-                            <option value="it">it</option>
+                        <select required class="add-item" id="major" >
+                            <option value="" hidden>Major</option>
+                            <option value="cs">Computer Science </option>
+                            <option value="ce">Computer Engineering</option>
+                            <option value="it">Information Technology</option>
+                            <option value="is">Information System </option>
                         </select>
                     </div>
                     <div>
-                        <select required class="add-item" name="role">
-                            <option value="role" hidden>Role</option>
-                            <option value="po">po</option>
-                            <option value="master">master</option>
+                        <select required class="add-item" id="role">
+                            <option value="" hidden>Role</option>
+                            <option value="fend">Front-End Developer</option>
+                            <option value="bend">Back-End Developer</option>
+                            <option value="fullstack"> Full-Stack Developer </option>
+                            <option value="uiux">UI/UX Designer </option>
                         </select>
                     </div>
                     <div>
-                        <textarea required class="add-item biography" name="pio" placeholder="Biography" minlength="5"
+                        <textarea required class="add-item biography" id="pio" placeholder="Biography" minlength="5"
                             maxlength="1500"></textarea>
                     </div>
                     <div class="bottom-option">
                         <input type="checkbox" id="bottom"><span class="checkbox-text">Add to bottom / or at index
                         </span>
                         <input class="index" type="text" name="index" id="index">
+                    </div>
+                    <div id="invalidDiv">
+                        <p id="invalid"></p>
                     </div>
                     <div class="save">
                         <input class="save-btn" type="button" name="save" value="Save" onclick="addMember()">
@@ -66,83 +73,62 @@
                     </select>
                     <select>
                         <option value="major" hidden>Major</option>
-                        <option value="cs">cs</option>
-                        <option value="ce">ce</option>
-                        <option value="it">it</option>
+                        <option value="cs">Computer Science </option>
+                        <option value="ce">Computer Engineering</option>
+                        <option value="it">Information Technology</option>
+                        <option value="is">Information System </option>
                     </select>
                     <select>
                         <option value="role" hidden>Role</option>
-                        <option value="po">po</option>
-                        <option value="master">master</option>
+                        <option value="fend">Front-End Developer</option>
+                        <option value="bend">Back-End Developer</option>
+                        <option value="fullstack"> Full-Stack Developer </option>
+                        <option value="uiux">UI/UX Designer </option>
                     </select>
                     <input type="text" placeholder="search by name">
                 </div>
                 <div class="items-number">
-                    <span>15 items</span>
+                    <span id="number"></span>
                 </div>
             </div>
             <div id="items">
-                <!-- <div class="item">
-                    <button class="delete">
-                        &#8722;
-                    </button>
-                    <div class="info" onclick="show()">
-                        <h3>Diana mujahed</h3>
-                        <a href="#">
-                            <span>
-                                diana.muj98@gmail.com
-                            </span>
-                            /
-                            <span>
-                                computer science
-                            </span>
-                            /
-                            <span>
-                                Front-end developer
-                            </span>
-                        </a>
-                        <p>fourth year computer science student at palestine polyhticnic university
-                        </p>
-                    </div>
-                </div>
-            </div> -->
+
+            </div>
         </div>
-    </div>
-    <div class="popup">
-        <div class="hide" id="item">
-            <div class="item-box">
-                <h1>Diana mujahed</h1>
-                <div class="basic-info">
-                    <span>diana.muj98@gmail.com</span> /
-                    <select>
-                        <option value="it">information technology</option>
-                        <option value="ce">computer engineeging</option>
-                        <option value="cs">computer science</option>
-                    </select> /
-                    <select>
-                        <option value="feont-end">Front-end developer</option>
-                        <option value="back-end">back-end developer</option>
-                        <option value="full-stack">full-stack developer</option>
-                    </select>
-                </div>
-                <p>
-                    Tolerably earnestly middleton extremely distrusts she boy now not.
-                    Add and offered prepare how cordial two promise. Greatly who affixed
-                    suppose but enquire compact prepare all put. Added forth chief trees
-                    but rooms think may. Wicket do manner others seemed enable rather in.
-                    Excellent own discovery unfeeling sweetness questions the gentleman.
-                    Chapter shyness matters mr parlors if mention thought.
-                </p>
-                <div class="buttons">
-                    <a href="" class="delete">Delete</a>
-                    <a href="" class="save">Save</a>
-                    <a href="" class="cancle">Cancle</a>
+        <div class="popup">
+            <div class="hide" id="item-detail">
+                <div class="item-box">
+                    <h1>Diana mujahed</h1>
+                    <div class="basic-info">
+                        <span>diana.muj98@gmail.com</span> /
+                        <select>
+                            <option value="it">information technology</option>
+                            <option value="ce">computer engineeging</option>
+                            <option value="cs">computer science</option>
+                        </select> /
+                        <select>
+                            <option value="feont-end">Front-end developer</option>
+                            <option value="back-end">back-end developer</option>
+                            <option value="full-stack">full-stack developer</option>
+                        </select>
+                    </div>
+                    <p>
+                        Tolerably earnestly middleton extremely distrusts she boy now not.
+                        Add and offered prepare how cordial two promise. Greatly who affixed
+                        suppose but enquire compact prepare all put. Added forth chief trees
+                        but rooms think may. Wicket do manner others seemed enable rather in.
+                        Excellent own discovery unfeeling sweetness questions the gentleman.
+                        Chapter shyness matters mr parlors if mention thought.
+                    </p>
+                    <div class="buttons">
+                        <a href="" class="delete">Delete</a>
+                        <a href="" class="save">Save</a>
+                        <a href="" class="cancle">Cancle</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 </body>
 
 </html>
-<script src="backend.js"></script>
