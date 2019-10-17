@@ -23,6 +23,7 @@ class Member {
 let members = [];
 
 
+
 //check local storage
 if (localStorage.getItem('dataBase')) {
 	members = JSON.parse(localStorage.getItem('dataBase'));
@@ -36,6 +37,12 @@ else {
 let checkEmail = (targetEmail, members) => {
 	return members.some((member) => member.email.toLowerCase() == targetEmail.toLowerCase())
 }
+
+
+
+
+//for filters
+let sortedArray=members.slice() ;//cloning members array
 
 //render members in the html
 function renderMembersInHtml(membersArr) {
@@ -155,11 +162,9 @@ function deleteMember(button) {
 }
 
 //first filter 
-function changeFunc() {
+function filterchange_1() {
 	let filter_1 = document.getElementById("filter1");
 	let selectedValue = filter_1.options[filter_1.selectedIndex].value;
-
-	let sortedArray = members.slice();//cloning members array
 
 	if (selectedValue == "A-Z") {
 		sortedArray.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : -1);
@@ -181,3 +186,28 @@ function changeFunc() {
 	renderMembersInHtml(sortedArray);
 
 }
+
+
+// //filter 2
+function filterchange_2() {
+	let filter_2 = document.getElementById("filter2");
+	let selectedValue = filter_2.options[filter_2.selectedIndex].value;
+	sortedArray.filter(member => member.major != selectedValue);
+console.log(sortedArray);
+	// if (selectedValue == "cs") {
+	// 	sortedArray.filter(member => member.major == selectedValue);
+	// }
+	// else if (selectedValue == "ce") {
+	// 	sortedArray.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : -1);
+	// }
+	// else if (selectedValue == "it") {
+	// 	sortedArray.sort((a, b) => (a.date < b.date) ? 1 : -1);
+
+	// }
+	// else if (selectedValue == "is") {
+	// 	sortedArray.sort((a, b) => (a.date > b.date) ? 1 : -1);
+	// }
+	renderMembersInHtml(sortedArray);
+
+}
+
