@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="backend.js" async></script>
+    
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <title>PSU Team</title>
 </head>
 
 <body>
-    <header class="top-bar"> 
+    <header class="top-bar">
         <h1 class="header-text">PSEU Team Memebers</h1>
     </header>
     <div class="main">
@@ -67,11 +67,14 @@
             <div class="top-menu">
                 <div class="filters">
                     <label>sorted by</label>
-                    <select>
-                        <option value="A-Z" >A-Z</option>
-                        <option value="Z-A" onclick="reverse()">Z-A</option>
+                    <select onchange="changeFunc();" id="filter1">
+                        <option value="" hidden>A-Z</option>
+                        <option value="A-Z">A-Z</option>
+                        <option value="Z-A">Z-A</option>
                         <option value="newist">newist</option>
                         <option value="oldest">oldest</option>
+                        <option value="original">original</option>
+
                     </select>
                     <select>
                         <option value="" hidden>Major</option>
@@ -97,6 +100,7 @@
 
             </div>
         </div>
+    </div>
         <div class="popup">
             <div class="hide" id="item-detail">
                 <div class="item-box">
@@ -134,7 +138,8 @@
                 </div>
             </div>
         </div>
-
+    
+    <script src="backend.js" ></script>
 </body>
 
 </html>

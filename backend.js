@@ -21,6 +21,8 @@ class Member {
 
 //array for storing members
 let members = [];
+
+
 //check local storage
 if (localStorage.getItem('dataBase')) {
 	members = JSON.parse(localStorage.getItem('dataBase'));
@@ -63,14 +65,14 @@ function renderMembersInHtml(membersArr) {
       </p>
   </div>
 </div>
-</div>`;
+`;
 	}
 
 
+	if (html)
+		document.getElementById("items").innerHTML = html;
 
-	document.getElementById("items").innerHTML = html;
-
-	let number = members.length;
+	let number = membersArr.length;
 	document.getElementById("number").innerHTML = number + " ITEMS";
 };
 
@@ -152,11 +154,30 @@ function deleteMember(button) {
 
 }
 
-//reverse array for z-a filter
-function reverse() {
-	let reversedArray = members.reverse();
-	renderMembersInHtml(reversedArray);
+//first filter 
+function changeFunc() {
+	let filter_1 = document.getElementById("filter1");
+	let selectedValue = filter_1.options[filter_1.selectedIndex].value;
+
+	let sortedArray = members.slice();//cloning members array
+
+	if (selectedValue == "A-Z") {
+		sortedArray.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase()) ? 1 : -1);
+	}
+	else if (selectedValue == "Z-A") {
+		sortedArray.sort((a, b) => (a.name.toLowerCase() < b.name.toLowerCase()) ? 1 : -1);
+	}
+	else if (selectedValue == "newist") {
+		sortedArray.sort((a, b) => (a.date < b.date) ? 1 : -1);
+
+	}
+	else if (selectedValue == "oldest") {
+		sortedArray.sort((a, b) => (a.date > b.date) ? 1 : -1);
+	}
+	else if (selectedValue == "original") {
+		sortedArray = members.slice();
+
+	}
+	renderMembersInHtml(sortedArray);
 
 }
-
-
